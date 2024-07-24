@@ -2,12 +2,15 @@
 
 
 ## Known Issues and/or Functionality to implement (in progress)
+- Chat button is not live
+- Contact button does nothing
 - Hours display is not live
 - EBSCO search filters do not work
 - Issue with FAQ filter in search
 - uneven displays in mobile, etc.
 - Double searchbox in the databases search tab
 - Announcements section needs finalization.
+- Ask a student button is not currently available
 
 ## Design Challenges to address
 - colors, etc.
