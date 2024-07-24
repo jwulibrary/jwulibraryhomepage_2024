@@ -1,5 +1,4 @@
-# jwulibraryhomepage_2024
-
+# JWU Providence Library Homepage Redesign (2024)
 
 ## Known Issues and/or Functionality to implement (in progress)
 - Chat button is not live
