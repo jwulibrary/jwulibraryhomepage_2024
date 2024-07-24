@@ -16,7 +16,7 @@
 - could use more contrast (especially with the searchbox)
 - Fine-tune visual weights (boxes, font, etc.) for clarity and prioritization.
 - Adjust shadows and irregular sizes.
-- Reduce extra wasted space in the header by making hours horizontal.
+- Reduce extra wasted space in the header (possibly by making hours horizontal.)
 - Ensure accessibility and color contrast compliance.
 - Define call to action buttons.
 - Add whitespace for better readability.
