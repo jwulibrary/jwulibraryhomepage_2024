@@ -14,7 +14,7 @@
 - Content of small tiles (the row of six buttons under the searchbox and study room links)--these can be customized and assigned based on strategic priorities
 - colors, etc.
 - could use more contrast (especially with the searchbox)
-- Fine-tune visual weights for prioritization.
+- Fine-tune visual weights (boxes, font, etc.) for clarity and prioritization.
 - Adjust shadows and irregular sizes.
 - Reduce extra wasted space in the header by making hours horizontal.
 - Ensure accessibility and color contrast compliance.
