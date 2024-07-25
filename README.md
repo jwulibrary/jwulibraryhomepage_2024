@@ -1,5 +1,7 @@
 # JWU Providence Library Homepage Redesign (2024)
 
+_Updated 7/25/24, 5PM_
+
 ## Known Issues and/or Functionality to implement (in progress)
 - some Everything filters not working (ebooks, etc.)
 - Chat button is not live
