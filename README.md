@@ -1,6 +1,7 @@
 # JWU Providence Library Homepage Redesign (2024)
 
 ## Known Issues and/or Functionality to implement (in progress)
+- some Everything filters not working (ebooks, etc.)
 - Chat button is not live
 - Hours display is not live
 - EBSCO search filters do not work
