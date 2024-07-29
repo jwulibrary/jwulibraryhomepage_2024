@@ -13,7 +13,7 @@ _Updated 7/29/24, 5 PM_
 ### Interface Elements
 - Chat button is not functional.
 - Hours display is currently placeholders.
-- "Ask a student" button is not available.
+- "Ask a student" button is not available. (IN PROGRESS... WILL BE UP SOON)
 - Announcements section needs finalization (real links, either random shuffle load or carousel slider).
 
 ### Mobile and Responsiveness
