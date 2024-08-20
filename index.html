@@ -75,7 +75,24 @@
             font-size: 0.875rem;
             color: #ffffff;
         }
+/* Hide the next day hours and date */
+#s_lc_tdh_1433_0 .s-lc-w-head, 
+#s_lc_tdh_1433_0 .s-lc-w-today-view-link {
+    display: none;
+}
+#s_lc_tdh_1433_0 .s-lc-w-location a {
+    color: inherit; /* Inherit color from parent */
+    text-decoration: none; /* Remove underline */
+    pointer-events: none; /* Disable clicking */
+    cursor: default; /* Change cursor to default */
+    margin-right:10px;
+}
+/* Only display hours for each location */
+#s_lc_tdh_1433_0 .s-lc-w-today-view-all {
+    display: none;
+}
 
+.s-lc-w-sr-only{display:none;}
         /* Navbar */
         .navbar-light .navbar-nav .nav-link {
             color: #013566;
@@ -636,31 +653,32 @@
 </head>
 
 <body>
+
+
     <!-- Header Section -->
-    <header class="bg-jwu-blue text-white py-3 position-relative">
-        <div class="container d-flex justify-content-between align-items-center">
-            <img src="https://libapps.s3.amazonaws.com/accounts/1358/images/logowithprovidence_better.png"
-                alt="JWU Library Logo" class="logo">
-            <div id="library-hours" class="library-hours text-right">
-                <p id="downcity-hours" class="mb-0">Loading Downcity Library hours...</p>
-                <p id="harborside-hours" class="mb-0">Loading Harborside Library hours...</p>
-                <p id="museum-hours" class="mb-0">Loading Culinary Arts Museum hours...</p>
-                <p class="mb-0"><a href="https://jwu-ri.libcal.com/hours/" class="text-white">View all hours</a></p>
-            </div>
+<header class="bg-jwu-blue text-white py-3 position-relative">
+    <div class="container d-flex justify-content-between align-items-center">
+        <img src="https://libapps.s3.amazonaws.com/accounts/1358/images/logowithprovidence_better.png"
+            alt="JWU Library Logo" class="logo">
+        <div id="library-hours" class="library-hours text-right">
+            <div id="s_lc_tdh_1433_0"></div> <!-- Placeholder for the hours widget -->
+            <p class="mb-0"><a href="https://jwu-ri.libcal.com/hours/" class="text-white">View all hours</a></p>
         </div>
-        <div class="alert-box alert alert-dismissible fade show" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-            <div>
-                <i class="fas fa-link"></i> <a href="https://forms.office.com/r/Hy5Uq1VWey" class="alert-link"
-                    target="_blank">Submit feedback here</a><br>
-                <i class="fas fa-exclamation-circle"></i> <a
-                    href="https://github.com/jwulibrary/jwulibraryhomepage_2024/blob/main/README.md" class="alert-link"
-                    target="_blank"> Known Issues</a>
-            </div>
+    </div>
+    <div class="alert-box alert alert-dismissible fade show" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <div>
+            <i class="fas fa-link"></i> <a href="https://forms.office.com/r/Hy5Uq1VWey" class="alert-link"
+                target="_blank">Submit feedback here</a><br>
+            <i class="fas fa-exclamation-circle"></i> <a
+                href="https://github.com/jwulibrary/jwulibraryhomepage_2024/blob/main/README.md" class="alert-link"
+                target="_blank"> Known Issues</a>
         </div>
-    </header>
+    </div>
+</header>
+
 
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -1104,45 +1122,19 @@
     </button>
 
     <!-- Scripts -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://jwu-ri.libcal.com/js/hours_today.js"></script> 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const apiUrl = 'https://jwu-ri.libcal.com/admin/api/hours/{id}';
-            const locationIds = {
-                downcity: 1898,
-                harborside: 1899,
-                museum: 5999
-            };
-            const today = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
-
-            fetchLibraryHours();
-
-            async function fetchLibraryHours() {
-                try {
-                    const responses = await Promise.all(Object.keys(locationIds).map(location =>
-                        fetch(apiUrl.replace('{id}', locationIds[location]))
-                    ));
-                    const data = await Promise.all(responses.map(response => response.json()));
-
-                    updateHours('downcity-hours', data[0], today);
-                    updateHours('harborside-hours', data[1], today);
-                    updateHours('museum-hours', data[2], today);
-                } catch (error) {
-                    console.error('Error fetching library hours:', error);
-                    document.getElementById('library-hours').innerHTML = '<p class="mb-0">Error loading hours. Please try again later.</p>';
-                }
-            }
-
-            function updateHours(elementId, locationData, date) {
-                const location = locationData[0];
-                const hoursInfo = location.dates[date][0].hours[0];
-                document.getElementById(elementId).innerHTML = `${location.name}: ${hoursInfo.from} - ${hoursInfo.to}`;
-            }
+        $(function(){ 
+            var s_lc_tdh_1433_0 = new $.LibCalTodayHours($("#s_lc_tdh_1433_0"), { 
+                iid: 1433, 
+                lid: 0 // 0 is used to get all location hours for today
+            }); 
         });
-
     </script>
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             var databaseTitles = [
