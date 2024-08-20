@@ -71,6 +71,11 @@
             /* 12px to rem */
         }
 
+        #library-hours p {
+            font-size: 0.875rem;
+            color: #ffffff;
+        }
+
         /* Navbar */
         .navbar-light .navbar-nav .nav-link {
             color: #013566;
@@ -92,47 +97,116 @@
             color: #FFCC33;
         }
 
+
+
         /* Search Box */
         .searchbox {
+            display: flex;
+            flex-direction: column;
             position: relative;
-            padding: 0rem;
-            /* 16px to rem */
+            padding: 0.5rem;
             border-radius: 0.5rem;
-            /* 8px to rem */
+            background-color: #ffffff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 100%;
         }
 
         .searchbox-content {
-            padding: 0rem;
-            /* 16px to rem */
+            padding: 0.5rem;
             border-radius: 0.5rem;
-            /* 8px to rem */
+            background-color: #f8f8f8;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         .searchbox .nav-tabs .nav-link {
             color: #013566;
             font-weight: 600;
+            padding: 0.75rem 1rem;
+            border-radius: 0.25rem 0.25rem 0 0;
         }
 
         .searchbox .nav-tabs .nav-link:hover {
             color: #FFCC33;
+            background-color: #e6e6e6;
         }
 
         .searchbox .nav-tabs .nav-link.active {
             background-color: #0D5397;
             color: #ffffff;
+            border: none;
         }
 
         .searchbox .input-group {
+            display: flex;
             width: 100%;
+            border-radius: 0.5rem;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         .searchbox .input-group .form-control {
+            flex-grow: 1;
+            padding: 0.75rem;
+            border: 1px solid #d1d1d1;
             border-right: none;
+            border-radius: 0;
+            font-size: 1rem;
         }
 
         .searchbox .input-group .input-group-append button {
+            padding: 0.75rem 1rem;
             border-left: none;
+            background-color: #0D5397;
+            color: #ffffff;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 0;
         }
+
+        /* Mobile Search Box Styles */
+        @media (max-width: 768px) {
+            .searchbox .input-group {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .searchbox .input-group .form-control {
+                padding: 0.5rem;
+                font-size: 0.9rem;
+                border-radius: 0.5rem 0.5rem 0 0;
+                margin-bottom: 0.5rem;
+            }
+
+            .searchbox .input-group .input-group-append button {
+                padding: 0.5rem 0.75rem;
+                font-size: 0.9rem;
+                border-radius: 0 0 0.5rem 0.5rem;
+                width: 100%;
+            }
+
+            .searchbox .nav-tabs .nav-link {
+                font-size: 0.875rem;
+                padding: 0.5rem 0.75rem;
+                margin-bottom: 0.25rem;
+            }
+
+            .searchbox-content {
+                padding: 0.5rem;
+                border-radius: 0.5rem;
+            }
+
+            .filters label {
+                font-size: 0.75rem;
+                margin-right: 0.5rem;
+                flex-wrap: wrap;
+            }
+
+            .links a {
+                font-size: 0.75rem;
+                margin-right: 0.5rem;
+            }
+        }
+
 
         /* Buttons */
         .btn-primary-custom {
@@ -200,6 +274,10 @@
             border-color: #0D5397;
             color: #ffffff;
         }
+
+
+
+
 
         /* Updated Announcements Section */
         .announcements .card-body {
@@ -475,36 +553,37 @@
             font-weight: 400;
         }
 
-        /* Responsive Design */
+        /* Responsive Design for Large Tiles */
         @media (max-width: 768px) {
             .tile-large {
-                flex-direction: column;
-                align-items: flex-start;
+                flex-direction: row;
+                align-items: center;
+                justify-content: flex-start;
             }
 
             .tile-large i {
-                margin-right: 0;
-                margin-bottom: 0.5rem;
+                margin-right: 0.875rem;
+                /* Keep margin for spacing between icon and text */
+                margin-bottom: 0;
+                /* Remove bottom margin to keep icon aligned with text */
                 font-size: 2.5rem;
+                /* Adjust font size if needed */
             }
 
             .tile-large h3 {
                 font-size: 1rem;
+                /* Adjust text size if needed */
+                margin: 0;
+                /* Ensure no margin is added to h3 */
+                line-height: 1.25rem;
+                /* Adjust line-height if needed */
             }
-        }
 
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-
-            .tile-large h3,
             .tile-small h4 {
-                font-size: 0.85rem;
-            }
-
-            .tile-large p,
-            .tile-small p {
-                font-size: 0.65rem;
+                font-size: 1.05rem;
+                /* Increase text size to 1.05rem */
+                margin-bottom: 0.1875rem;
+                /* Retain original margin for spacing */
             }
         }
 
@@ -562,10 +641,10 @@
         <div class="container d-flex justify-content-between align-items-center">
             <img src="https://libapps.s3.amazonaws.com/accounts/1358/images/logowithprovidence_better.png"
                 alt="JWU Library Logo" class="logo">
-            <div class="library-hours text-right">
-                <p class="mb-0">Downcity Library: 9am - 9pm</p>
-                <p class="mb-0">Harborside Library: 10am - 6pm</p>
-                <p class="mb-0">Culinary Arts Museum: 8am - 5pm</p>
+            <div id="library-hours" class="library-hours text-right">
+                <p id="downcity-hours" class="mb-0">Loading Downcity Library hours...</p>
+                <p id="harborside-hours" class="mb-0">Loading Harborside Library hours...</p>
+                <p id="museum-hours" class="mb-0">Loading Culinary Arts Museum hours...</p>
                 <p class="mb-0"><a href="https://jwu-ri.libcal.com/hours/" class="text-white">View all hours</a></p>
             </div>
         </div>
@@ -613,7 +692,7 @@
     </nav>
 
     <!-- Main Content -->
-    <main class="container my-3">
+    <main class="container ">
         <div class="row">
             <div class="col-md-8 col-lg-9 mb-3">
                 <div class="searchbox-content">
@@ -778,11 +857,14 @@
                                     <div class="links d-flex align-items-center ml-auto">
                                         <a href="https://pvd.library.jwu.edu/libguides" class="mr-3 link-style"
                                             target="_blank">View all LibGuides</a>
+                                        <a href="https://jwu-ri.libanswers.com/" class="mr-3 link-style"
+                                            target="_blank">View all FAQs</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                     <div class="row mt-3">
                         <div class="col-md-6 mb-3">
                             <a href="https://pvd.library.jwu.edu/askalibrarian" id="ask-librarian"
@@ -804,7 +886,7 @@
                             <a href="https://jwu-ri.libcal.com/allspaces" id="reserve-room" class="tile-large mb-3">
                                 <i class="fas fa-door-open fa-3x" aria-hidden="true"></i>
                                 <div>
-                                    <h3>Reserve a Room</h3>
+                                    <h3>Reserve a Study Room</h3>
                                 </div>
                             </a>
                             <a href="https://jwu-ri.libcal.com/appointments/" id="make-appointment" class="tile-large">
@@ -1025,6 +1107,42 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const apiUrl = 'https://jwu-ri.libcal.com/admin/api/hours/{id}';
+            const locationIds = {
+                downcity: 1898,
+                harborside: 1899,
+                museum: 5999
+            };
+            const today = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
+
+            fetchLibraryHours();
+
+            async function fetchLibraryHours() {
+                try {
+                    const responses = await Promise.all(Object.keys(locationIds).map(location =>
+                        fetch(apiUrl.replace('{id}', locationIds[location]))
+                    ));
+                    const data = await Promise.all(responses.map(response => response.json()));
+
+                    updateHours('downcity-hours', data[0], today);
+                    updateHours('harborside-hours', data[1], today);
+                    updateHours('museum-hours', data[2], today);
+                } catch (error) {
+                    console.error('Error fetching library hours:', error);
+                    document.getElementById('library-hours').innerHTML = '<p class="mb-0">Error loading hours. Please try again later.</p>';
+                }
+            }
+
+            function updateHours(elementId, locationData, date) {
+                const location = locationData[0];
+                const hoursInfo = location.dates[date][0].hours[0];
+                document.getElementById(elementId).innerHTML = `${location.name}: ${hoursInfo.from} - ${hoursInfo.to}`;
+            }
+        });
+
+    </script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             var databaseTitles = [
