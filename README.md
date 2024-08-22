@@ -1,5 +1,7 @@
 # JWU Providence Library Homepage Redesign (2024)
 
+https://jwulibrary.github.io/jwulibraryhomepage_2024/
+
 _Updated 8/12/24, 5 PM_
 
 ## Current Issues & Ongoing Work
