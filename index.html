@@ -724,6 +724,7 @@
         <div class="row">
             <div class="col-md-8 col-lg-9 mb-3">
                 <div class="searchbox-content">
+                    <!-- Searchbox -->
                     <div class="searchbox mb-4">
                         <ul class="nav nav-tabs" id="searchTab" role="tablist">
                             <li class="nav-item">
@@ -745,10 +746,8 @@
                         </ul>
                         <div class="tab-content" id="searchTabContent">
                             <!-- Everything Tab -->
-                            <div class="tab-pane fade show active" id="everything" role="tabpanel"
-                                aria-labelledby="everything-tab">
-                                <form id="everythingSearchForm" action="https://jwupvd.on.worldcat.org/search"
-                                    method="get" target="_blank" class="w-100">
+                            <div class="tab-pane fade show active" id="everything" role="tabpanel" aria-labelledby="everything-tab">
+                                <form id="everythingSearchForm" action="https://jwupvd.on.worldcat.org/search" method="get" target="_blank" class="w-100">
                                     <div class="input-group my-3">
                                         <input type="text" class="form-control" name="queryString"
                                             placeholder="Search Worldcat for books, ebooks, videos, articles, journals, etc."
@@ -760,65 +759,51 @@
                                     <div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
                                         <div class="filters d-flex align-items-center">
                                             <label class="mr-3 mb-0">
-                                                <input type="radio" name="format" value="" data-type="Everything"
-                                                    aria-label="Search Everything" checked> Everything
+                                                <input type="checkbox" name="subformat" value="Book::book_digital" data-type="Ebook" aria-label="Filter by Ebooks"> Ebooks
                                             </label>
                                             <label class="mr-3 mb-0">
-                                                <input type="radio" name="format" value="book_digital" data-type="Book"
-                                                    aria-label="Filter by Ebooks"> Ebooks
+                                                <input type="checkbox" name="subformat" value="Book::book_printbook" data-type="Print Book" aria-label="Filter by Print Books"> Print Books
                                             </label>
                                             <label class="mr-3 mb-0">
-                                                <input type="radio" name="format" value="book_printbook"
-                                                    data-type="Book" aria-label="Filter by Print Books"> Print Books
+                                                <input type="checkbox" name="subformat" value="Artchap::artchap_artcl" data-type="Article" aria-label="Filter to Articles"> Articles
                                             </label>
                                             <label class="mr-3 mb-0">
-                                                <input type="radio" name="format" value="artchap_artcl"
-                                                    data-type="Article" aria-label="Filter to Articles"> Articles
+                                                <input type="checkbox" name="subformat" value="Jrnl::jrnl_digital" data-type="Journal" aria-label="Filter by Journals"> Journals
                                             </label>
                                             <label class="mr-3 mb-0">
-                                                <input type="radio" name="format" value="video_digital"
-                                                    data-type="Streaming" aria-label="Filter by Streaming"> Streaming
-                                            </label>
-                                            <label class="mb-0">
-                                                <input type="radio" name="format" value="jrnl_digital" data-type="Jrnl"
-                                                    aria-label="Filter by Journals"> Journals
+                                                <input type="checkbox" name="subformat" value="Video::video_digital" data-type="Streaming" aria-label="Filter by Streaming"> Streaming
                                             </label>
                                         </div>
                                         <div class="links d-flex align-items-center">
-                                            <a href="https://jwupvd.on.worldcat.org/advancedsearch"
-                                                class="mr-3 link-style" target="_blank">Advanced Search</a>
+                                            <a href="https://jwupvd.on.worldcat.org/advancedsearch" class="mr-3 link-style" target="_blank">Advanced Search</a>
                                         </div>
                                     </div>
                                 </form>
                             </div>
+                            
+                            
 
                             <!-- Articles Tab -->
                             <div class="tab-pane fade" id="articles" role="tabpanel" aria-labelledby="articles-tab">
-                                <div class="searchbox">
-                                    <form class="ebscohostCustomSearchBox" action=""
-                                        onsubmit="return ebscoHostSearchGo(this);" method="post"
-                                        style="overflow:hidden;">
-                                        <div class="search input-group">
-                                            <!-- EBSCOhost Custom Search Box Begins -->
-                                            <script src="https://support.ebscohost.com/eit/scripts/ebscohostsearch.js"
-                                                type="text/javascript"></script>
-                                            <input id="ebscohostwindow" name="ebscohostwindow" type="hidden" value="1">
-                                            <input id="ebscohosturl" name="ebscohosturl" type="hidden"
-                                                value="https://jwupvdz.idm.oclc.org/login?url=https://search.ebscohost.com/login.aspx?direct=true&amp;scope=site&amp;type=1&amp;site=ehost-live&amp;db=a9h&amp;db=31h&amp;db=b5h&amp;db=pdh&amp;db=ehh&amp;db=bth&amp;db=i3h&amp;db=eoah&amp;db=eric&amp;db=ffh&amp;db=funk&amp;db=8gh&amp;db=khh&amp;db=hjh&amp;db=lxh&amp;db=ulh&amp;db=f5h&amp;db=cmedm&amp;db=mih&amp;db=mth&amp;db=prh&amp;db=bwh&amp;db=s3h&amp;db=tth&amp;db=fsr&amp;db=cja&amp;db=nlebk&amp;db=e000xna&amp;db=hev&amp;db=lfh&amp;db=ftt&amp;db=pzh&amp;db=trh&amp;db=cms&amp;db=mzh&amp;db=ufh&amp;db=qth&amp;db=ccm&amp;db=brb&amp;db=b6h&amp;db=e868sww&amp;db=e871sww&amp;db=e864sww&amp;e870sww&amp;lang=en&amp;ssl=Y">
-                                            <input id="ebscohostsearchsrc" name="ebscohostsearchsrc" type="hidden"
-                                                value="url">
-                                            <input id="ebscohostsearchmode" name="ebscohostsearchmode" type="hidden"
-                                                value="+">
-                                            <label for="ebscohostsearchtext" class="sr-only">Find articles</label>
-                                            <input id="ebscohostsearchtext" class="form-control input"
-                                                name="ebscohostsearchtext" type="text"
-                                                placeholder="Search all EBSCO databases for articles and ebooks">
-                                            <div class="input-group-append">
-                                                <button type="submit" class="btn btn-primary">Search</button>
-                                            </div>
+                                <form class="ebscohostCustomSearchBox" action=""
+                                    onsubmit="return ebscoHostSearchGo(this);" method="post" style="overflow:hidden;">
+                                    <div class="search input-group">
+                                        <input id="ebscohostwindow" name="ebscohostwindow" type="hidden" value="1">
+                                        <input id="ebscohosturl" name="ebscohosturl" type="hidden"
+                                            value="https://jwupvdz.idm.oclc.org/login?url=https://search.ebscohost.com/login.aspx?direct=true&amp;scope=site&amp;type=1&amp;site=ehost-live&amp;db=a9h&amp;db=31h&amp;db=b5h&amp;db=pdh&amp;db=ehh&amp;db=bth&amp;db=i3h&amp;db=eoah&amp;db=eric&amp;db=ffh&amp;db=funk&amp;db=8gh&amp;db=khh&amp;db=hjh&amp;db=lxh&amp;db=ulh&amp;db=f5h&amp;db=cmedm&amp;db=mih&amp;db=mth&amp;db=prh&amp;db=bwh&amp;db=s3h&amp;db=tth&amp;db=fsr&amp;db=cja&amp;db=nlebk&amp;db=e000xna&amp;db=hev&amp;db=lfh&amp;db=ftt&amp;db=pzh&amp;db=trh&amp;db=cms&amp;db=mzh&amp;db=ufh&amp;db=qth&amp;db=ccm&amp;db=brb&amp;db=b6h&amp;db=e868sww&amp;db=e871sww&amp;db=e864sww&amp;e870sww&amp;lang=en&amp;ssl=Y">
+                                        <input id="ebscohostsearchsrc" name="ebscohostsearchsrc" type="hidden"
+                                            value="url">
+                                        <input id="ebscohostsearchmode" name="ebscohostsearchmode" type="hidden"
+                                            value="+">
+                                        <label for="ebscohostsearchtext" class="sr-only">Find articles</label>
+                                        <input id="ebscohostsearchtext" class="form-control input"
+                                            name="ebscohostsearchtext" type="text"
+                                            placeholder="Search all EBSCO databases for articles and ebooks">
+                                        <div class="input-group-append">
+                                            <button type="submit" class="btn btn-primary">Search</button>
                                         </div>
-                                    </form>
-                                </div>
+                                    </div>
+                                </form>
                                 <div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
                                     <div class="filters d-flex align-items-center">
                                         <label class="mr-3 mb-0" for="fullTextFilter"><input id="fullTextFilter"
@@ -864,8 +849,9 @@
                                     target="_blank" class="w-100">
                                     <div class="input-group my-3">
                                         <input type="text" id="s-lg-guide-search-terms" name="q" class="form-control"
-                                            maxlength="260" placeholder="Search LibGuides and LibAnswers"
-                                            aria-label="Search LibGuides and LibAnswers">
+                                            maxlength="260" placeholder="Search FAQs and Guides"
+                                            aria-label="Search FAQs and Guides">
+                                        <input type="hidden" id="searchType" name="t" value="1560">
                                         <div class="input-group-append">
                                             <button class="btn btn-primary" type="submit">Search</button>
                                         </div>
@@ -874,36 +860,37 @@
                                 <div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
                                     <div class="filters d-flex align-items-center">
                                         <label class="mr-3 mb-0">
-                                            <input type="radio" name="searchType" value="1558"
-                                                aria-label="Filter by Guides" checked> Guides
+                                            <input type="radio" name="searchTypeOption" value="1560"
+                                                aria-label="Filter by FAQs" checked> FAQs
                                         </label>
                                         <label class="mb-0">
-                                            <input type="radio" name="searchType" value="1560"
-                                                aria-label="Filter by FAQs"> FAQs
+                                            <input type="radio" name="searchTypeOption" value="1558"
+                                                aria-label="Filter by Guides"> Guides
                                         </label>
                                     </div>
                                     <div class="links d-flex align-items-center ml-auto">
-                                        <a href="https://pvd.library.jwu.edu/libguides" class="mr-3 link-style"
-                                            target="_blank">View all LibGuides</a>
                                         <a href="https://jwu-ri.libanswers.com/" class="mr-3 link-style"
                                             target="_blank">View all FAQs</a>
+                                        <a href="https://pvd.library.jwu.edu/libguides" class="mr-3 link-style"
+                                            target="_blank">View all LibGuides</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
 
+
                     <div class="row mt-3">
                         <div class="col-md-6 mb-3">
-                            <a href="https://pvd.library.jwu.edu/ask/librarian#ask-description" target="_blank" id="ask-librarian"
-                                class="tile-large mb-3">
+                            <a href="https://pvd.library.jwu.edu/ask/librarian#ask-description" target="_blank"
+                                id="ask-librarian" class="tile-large mb-3">
                                 <i class="fas fa-question-circle fa-3x" aria-hidden="true"></i>
                                 <div>
                                     <h3>Ask a Librarian</h3>
                                 </div>
                             </a>
-                            <a href="https://pvd.library.jwu.edu/ask/student#ask-descriptiont"  target="_blank" id="ask-student-assistant"
-                                class="tile-large">
+                            <a href="https://pvd.library.jwu.edu/ask/student#ask-descriptiont" target="_blank"
+                                id="ask-student-assistant" class="tile-large">
                                 <i class="fas fa-life-ring fa-3x" aria-hidden="true"></i>
                                 <div>
                                     <h3>Ask a Student Assistant</h3>
@@ -1162,7 +1149,7 @@
                 "Business Source Complete",
                 "Chicago Tribune",
                 "Chronicle of Higher Education",
-                "CINAHL Complete",
+                "CINAHL Ultimate",
                 "Cochrane Library",
                 "Communication Source (EBSCO)",
                 "CQ Researcher Online",
@@ -1214,8 +1201,7 @@
                 "Ocean State Libraries eZone",
                 "Opposing Viewpoints",
                 "Proquest Dissertations & Theses",
-                \
-                PsycARTICLES (EBSCO)",
+                "PsycARTICLES (EBSCO)",
                 "PubMed",
                 "Regional Business News (EBSCO)",
                 "RKMA - Richard K. Miller",
@@ -1244,13 +1230,40 @@
                 maxItems: 10,
                 container: function (input) {
                     var div = document.createElement("div");
-                    div.className = "awesomplete form-control";
+                    div.className = "awesomplete-container";
                     input.parentNode.insertBefore(div, input);
                     div.appendChild(input);
                     return div;
                 }
             });
+
+            var faqRadioButton = document.querySelector('input[name="searchTypeOption"][value="1560"]');
+            var guideRadioButton = document.querySelector('input[name="searchTypeOption"][value="1558"]');
+            var searchTypeInput = document.getElementById('searchType');
+            var searchInput = document.getElementById('s-lg-guide-search-terms');
+
+            // Set initial form action and search type for FAQs
+            faqRadioButton.checked = true;
+            searchTypeInput.value = "1560";
+            searchInput.placeholder = 'Search FAQs';
+
+            // Update form action and search type when FAQs is selected
+            faqRadioButton.addEventListener('click', function () {
+                searchTypeInput.value = "1560";
+                searchInput.placeholder = 'Search FAQs';
+            });
+
+            // Update form action and search type when Guides is selected
+            guideRadioButton.addEventListener('click', function () {
+                searchTypeInput.value = "1558";
+                searchInput.placeholder = 'Search Guides';
+            });
         });
+        document.getElementById('everythingSearchForm').addEventListener('submit', function (e) {
+    let formAction = this.action;
+    let params = new URLSearchParams(new FormData(this)).toString();
+    this.action = `${formAction}?${params}`;
+});
     </script>
 </body>
 
